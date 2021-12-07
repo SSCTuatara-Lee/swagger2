@@ -30,7 +30,7 @@ public class ArticleController {
         return "add";
     }
 
-    @GetMapping("/emps")
+    @PostMapping("/emps")      //这里编不出来，似乎参数无法提取
     public String addEmp(@RequestParam(required = false) Article article){
         articleDao.add(article);
         return "redirect:/article";
