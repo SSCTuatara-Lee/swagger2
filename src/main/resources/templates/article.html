@@ -9,6 +9,7 @@
 <h6>Thymeleaf 模板引擎</h6>
 
 <button type="button"><a th:href="@{/emp}" >添加</a></button>
+
 <table border="1" bgcolor="#f0ffff">
     <thead>
     <tr>
@@ -29,10 +30,16 @@
             <button type="button"><a th:href="@{/delete/} + ${article.getId()}" >删除</a></button>
         </td>
 
-
-
     </tr>
+
     </tbody>
+    <form th:action="@{/search}" method="post">
+        <div class="form-group">
+            <label>查询id</label>
+            <input type="number" name="id" class="form-control" placeholder="101" >
+        </div>
+        <button type="submit" class="btn btn-primary">查询</button>
+    </form>
 </table>
 
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>查询结果</title>
+</head>
+<body>
+<button type="button"><a th:href="@{/article}" >返回</a></button>
+<table border="1" bgcolor="#f0ffff">
+<thead>
+<tr>
+    <th>序号</th>
+    <th>标题</th>
+    <th>摘要</th>
+    <th>创建时间</th>
+    <th>操作</th>
+</tr>
+</thead>
+<tbody th:each="article : ${temps}">
+<tr>
+    <td th:text="${article.getId()}"></td>
+    <td th:text="${article.getTitle()}"></td>
+    <td th:text="${article.getSummary()}"></td>
+    <td th:text="${#dates.format(article.createTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+    <td>
+        <button type="button"><a th:href="@{/delete/} + ${article.getId()}" >删除</a></button>
+    </td>
+
+</tr>
+
+</tbody>
+
+</table>
+</body>
+
+</html>

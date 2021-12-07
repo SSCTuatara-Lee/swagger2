@@ -43,6 +43,13 @@ public class ArticleController {
     }
 
 
+    @PostMapping(value = "/search",produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String searchSing(Model model,@RequestParam("id") Integer id){
+        Article article = articleDao.searchOne(id);
+        model.addAttribute("temps",article);
+        return "search";
+    }
+
 
 
     //删除
