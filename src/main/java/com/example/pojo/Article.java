@@ -2,6 +2,7 @@ package com.example.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
@@ -15,6 +16,7 @@ public class Article {
     private String title;
     private String summary;
     private Date createTime;
+
 
     public Article(Integer id, String title, String summary) {
         this.id = id;

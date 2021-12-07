@@ -2,19 +2,22 @@ package com.example.controller;
 
 import com.example.dao.ArticleDao;
 import com.example.pojo.Article;
-import io.swagger.models.auth.In;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @Controller
 public class ArticleController {
 
     @Autowired
     ArticleDao articleDao;
+
 
 
     @RequestMapping("/article")
@@ -30,11 +33,16 @@ public class ArticleController {
         return "add";
     }
 
-    @PostMapping("/emps")      //这里编不出来，似乎参数无法提取
-    public String addEmp(@RequestParam(required = false) Article article){
+
+
+    @PostMapping(value = "/emps",produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String addEmp(@RequestParam("title") String title,@RequestParam("summary") String summary){
+        final val article = new Article(null, title, summary);
         articleDao.add(article);
         return "redirect:/article";
     }
+
+
 
 
     //删除

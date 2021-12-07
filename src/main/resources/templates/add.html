@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>添加信息</title>
-    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
 </head>
 <body>
-<script src="https://www.layuicdn.com/layui/layui.js"></script>
-<form class="layui-form" th:action="@{/emps}" method="get">
-    <div class="layui-form-item">
-        <label class="layui-form-label">输入框</label>
-        <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
-        </div>
+<form th:action="@{/emps}" method="post">
+    <div class="form-group">
+        <label>title</label>
+        <input type="text" name="title" class="form-control" placeholder="三国演义" >
+    </div>
+    <div class="form-group">
+        <label>描述</label>
+        <input  type="text" name="summary" class="form-control" placeholder="战争">
     </div>
 
-    <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">文本域</label>
-        <div class="layui-input-block">
-            <input type="text" name="summary" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" >立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-        </div>
-    </div>
+    <button type="submit" class="btn btn-primary">提交</button>
 </form>
+
 </body>
 </html>

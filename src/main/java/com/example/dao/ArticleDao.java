@@ -39,7 +39,7 @@ public class ArticleDao {
 
     //查询单个
 
-     public Article searchOne(Integer id){
+    public Article searchOne(Integer id){
         return articles.get(id);
     }
 
