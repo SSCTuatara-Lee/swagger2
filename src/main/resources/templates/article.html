@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<link rel="stylesheet" type="text/css" href="https//www.layuicdn.com/layui/css/layui.css" />
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>article</title>
+</head>
+<body>
+<h6>Thymeleaf 模板引擎</h6>
+<script src="https//www.layuicdn.com/layui/layui.js"></script>
+
+<button type="button"><a th:href="@{/emp}" >添加</a></button>
+<table border="1" bgcolor="#f0ffff">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>标题</th>
+        <th>摘要</th>
+        <th>创建时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody th:each="article : ${list}">
+    <tr>
+        <td th:text="${article.getId()}"></td>
+        <td th:text="${article.getTitle()}"></td>
+        <td th:text="${article.getSummary()}"></td>
+        <td th:text="${#dates.format(article.createTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td>
+            <button type="button"><a th:href="@{/delete/} + ${article.getId()}" >删除</a></button>
+        </td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
